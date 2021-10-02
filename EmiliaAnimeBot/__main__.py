@@ -54,7 +54,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-This is {Minato}
+This is Minato
 [.]({https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg})
 
 A Diverse Systematic Bot Written in Python.
@@ -94,8 +94,8 @@ buttons = [
 ]
 
 
-HELP_STRINGS = f"""
-`Hey there! My name is` [{BOT_NAME}]({https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg}) 
+HELP_STRINGS = """
+`Hey there! My name is` [Minato namikaze]({https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg}) 
 I have Quite a Few Features, Go Ahead and Check out!"""
 
 IMPORTED = {}
