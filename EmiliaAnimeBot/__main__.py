@@ -54,7 +54,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-This is Minato[.] ({https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg})
+This is Minato[.] https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg
 A Diverse Systematic Bot Written in Python.
 You can Add Me In Your Group for Knowing my True Power.
 
@@ -80,7 +80,7 @@ buttons = [
          
     [
        InlineKeyboardButton(
-           text="🐱 Support", url="https://t.me/{SUPPORT_CHAT}"
+           text="🐱 Support", url="https://t.me/minato_support}"
          ),
     ],
     [
