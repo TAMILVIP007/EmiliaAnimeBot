@@ -80,7 +80,7 @@ buttons = [
          
     [
        InlineKeyboardButton(
-           text="🐱 Support", url= f"https://t.me/support_chat}"
+           text="🐱 Support", url="https://t.me/support_chat}"
          ),
     ],
     [
