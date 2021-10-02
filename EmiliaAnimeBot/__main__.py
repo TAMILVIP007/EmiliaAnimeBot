@@ -55,8 +55,6 @@ def get_readable_time(seconds: int) -> str:
 
 PM_START_TEXT = """
 This is Minato[.]({https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg})
-[.]({https://telegra.ph/file/c6
-
 A Diverse Systematic Bot Written in Python.
 You can Add Me In Your Group for Knowing my True Power.
 
@@ -66,12 +64,12 @@ You can either use /help or the Commands Button Given Below To get a list of my 
 buttons = [
     [
         InlineKeyboardButton(
-            text="Add me to your group🏹",url=f"t.me/{BOT_USERNAME}?startgroup=true"
+            text="➕Add me to your group🏹",url=f"t.me/{BOT_USERNAME}?startgroup=true"
         ),
     ],
     [
         InlineKeyboardButton(
-          text="Commands", callback_data="help_back"
+          text="🔰Commands", callback_data="help_back"
         ),
     ],
     [
@@ -82,7 +80,7 @@ buttons = [
          
     [
        InlineKeyboardButton(
-           text="🐱 Support", url=f"https://t.me/{SUPPORT_CHAT}"
+           text="🐱 Support", url="https://t.me/{SUPPORT_CHAT}"
          ),
     ],
     [
