@@ -53,7 +53,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 
-PM_START_TEXT = f"""
+PM_START_TEXT = """
 This is {Minato}
 [.]({https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg})
 
@@ -66,7 +66,7 @@ You can either use /help or the Commands Button Given Below To get a list of my 
 buttons = [
     [
         InlineKeyboardButton(
-            text="🏹Add me to your group🏹",url=f"t.me/{BOT_USERNAME}?startgroup=true"
+            text="Add me to your group🏹",url=f"t.me/{BOT_USERNAME}?startgroup=true"
         ),
     ],
     [
