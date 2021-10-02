@@ -64,7 +64,7 @@ You can either use /help or the Commands Button Given Below To get a list of my 
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕Add me to your group🏹",url=f"t.me/{BOT_USERNAME}?startgroup=true"
+            text="➕Add me to your group",url=f"t.me/{BOT_USERNAME}?startgroup=true"
         ),
     ],
     [
@@ -80,12 +80,12 @@ buttons = [
          
     [
        InlineKeyboardButton(
-           text="🐱 Support", url={f"https://t.me/support_chat}"
+           text="usage", url="https://t.me/updates_channel_minato"
          ),
     ],
     [
         InlineKeyboardButton(
-          text="✒ usage", url="https://t.me/updates_channel_minato" # If you have a bit of dignity left in you, Do NOT Remove this Button
+          text="✒ support", url="https://t.me/minato_support" # If you have a bit of dignity left in you, Do NOT Remove this Button
         ),
      
     ],
