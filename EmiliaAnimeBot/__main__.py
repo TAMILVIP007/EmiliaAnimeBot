@@ -92,7 +92,7 @@ buttons = [
 
 
 HELP_STRINGS = f"""
-`Hey there! My name is` [{BOT_NAME}]({EMILIA_HELP_IMG}) 
+`Hey there! My name is` [{NAMIKAZE_MINATO}]({https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg}) 
 I have Quite a Few Features, Go Ahead and Check out!"""
 
 IMPORTED = {}
