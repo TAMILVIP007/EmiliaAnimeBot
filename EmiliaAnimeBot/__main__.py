@@ -54,7 +54,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT ="""
-This is Minato[.] https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg
+This is Minato[.](https://telegra.ph/file/edbccff8179b966995e5a.mp4)
 A Diverse Systematic Bot Written in Python.
 You can Add Me In Your Group for Knowing my True Power.
 
@@ -216,9 +216,6 @@ def start(update: Update, context: CallbackContext):
                   [
                   InlineKeyboardButton(text="Help", url=f"https://t.me/{BOT_USERNAME}?start=help")
                   ],
-                  [
-                  InlineKeyboardButton(text="Sᴏᴜʀᴄᴇ", url="https://github.com/IzumiCypherX/EmiliaAnimeBot")
-                  ]
                 ]
             ),
         )
