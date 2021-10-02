@@ -590,7 +590,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", f"{BOT_NAME} is Back Online https://telegra.ph/file/edbccff8179b966995e5a.mp4 💼")
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "[is Back Online 💼](https://telegra.ph/file/c571f802bd3c00f9c41d7.jpg)")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to SUPPORT_CHAT, go and check!"
