@@ -9,7 +9,6 @@ from EmiliaAnimeBot import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
                           OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK,
                           dispatcher, StartTime, telethn, updater, pgram, BOT_USERNAME, BOT_NAME)
 
-from EmiliaAnimeBot.resources.imagefiles import EMILIA_START_IMG, EMILIA_HELP_IMG, EMILIA_IMG
 from EmiliaAnimeBot.modules import ALL_MODULES
 from EmiliaAnimeBot.modules.helper_funcs.chat_status import is_user_admin
 from EmiliaAnimeBot.modules.helper_funcs.misc import paginate_modules
@@ -21,6 +20,8 @@ from telegram.ext import (CallbackContext, CallbackQueryHandler, CommandHandler,
                           Filters, MessageHandler)
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
 from telegram.utils.helpers import escape_markdown
+
+EMILIA_IMG = "https://telegra.ph/file/edbccff8179b966995e5a.mp4"
 
 def get_readable_time(seconds: int) -> str:
     count = 0
@@ -54,7 +55,7 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT ="""
-This is Minato[.](https://telegra.ph/file/edbccff8179b966995e5a.mp4)
+This is Minato[.](https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg)
 A Diverse Systematic Bot Written in Python.
 You can Add Me In Your Group for Knowing my True Power.
 
