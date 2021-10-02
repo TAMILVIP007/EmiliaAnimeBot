@@ -54,8 +54,8 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-This is Minato
-[.]({https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg})
+This is Minato[.]({https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg})
+[.]({https://telegra.ph/file/c6
 
 A Diverse Systematic Bot Written in Python.
 You can Add Me In Your Group for Knowing my True Power.
