@@ -205,14 +205,14 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_photo(
-            EMILIA_IMG, caption= "<code>{} is Here For You❤\nI am Awake Since</code>: <code>{}</code>".format(
+            EMILIA_IMG, caption= "<code>{} is Here For You🉐\nI am Awake Since</code>: <code>{}</code>".format(
                 BOT_NAME, uptime
             ),
             parse_mode=ParseMode.HTML,
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="Support", url=f"https://telegram.dog/{https://t.me/minato_support")
+                  InlineKeyboardButton(text="Support", url=f"https://telegram.dog/https://t.me/minato_support")
                   ],
                   [
                   InlineKeyboardButton(text="Help", url=f"https://t.me/{BOT_USERNAME}?start=help")
