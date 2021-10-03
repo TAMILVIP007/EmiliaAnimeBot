@@ -205,7 +205,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_photo(
-            EMILIA_IMG, caption= "<code>{} is Here For You🉐\nI am Awake Since</code>: <code>{}</code>".format(https://telegra.ph/file/732bd0d5e6f2e4f023bd9.jpg
+            EMILIA_IMG, caption= "<code>{} is Here For You🉐\nI am Awake Since</code>: <code>{}</code>".format(https://telegg
                 BOT_NAME, uptime
             ),
             parse_mode=ParseMode.HTML,
