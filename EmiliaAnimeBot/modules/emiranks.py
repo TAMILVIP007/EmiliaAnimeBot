@@ -480,7 +480,7 @@ def warcommanders(update: Update, context: CallbackContext):
 @whitelist_plus
 def supremedemons(update: Update, context: CallbackContext):
     bot = context.bot
-    reply = "<b>Jounin🔰:</b>\n"
+    reply = "<b>Jounin:</b>\n"
     for each_user in DEMONS:
         user_id = int(each_user)
         try:
