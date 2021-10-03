@@ -448,7 +448,7 @@ def removerace(update: Update, context: CallbackContext) -> str:
 @run_async
 @whitelist_plus
 def demonrace(update: Update, context: CallbackContext):
-    reply = "<b>All Rankers:</b>\n"
+    reply = "<b>▪️Genin:</b>\n"
     bot = context.bot
     for each_user in WOLVES:
         user_id = int(each_user)
@@ -464,7 +464,7 @@ def demonrace(update: Update, context: CallbackContext):
 @run_async
 @whitelist_plus
 def warcommanders(update: Update, context: CallbackContext):
-    reply = "<b>All Whitelisted(s) 🥈:</b>\n"
+    reply = "<b>◽Chunin:</b>\n"
     bot = context.bot
     for each_user in TIGERS:
         user_id = int(each_user)
@@ -480,7 +480,7 @@ def warcommanders(update: Update, context: CallbackContext):
 @whitelist_plus
 def supremedemons(update: Update, context: CallbackContext):
     bot = context.bot
-    reply = "<b>All Support Users🥇:</b>\n"
+    reply = "<b>🔰Jounin:</b>\n"
     for each_user in DEMONS:
         user_id = int(each_user)
         try:
@@ -496,7 +496,7 @@ def supremedemons(update: Update, context: CallbackContext):
 def commandments(update: Update, context: CallbackContext):
     bot = context.bot
     true_sudo = list(set(DRAGONS) - set(DEV_USERS))
-    reply = "<b>All Sudos🏅:</b>\n"
+    reply = "<b>anbu🏅:</b>\n"
     for each_user in true_sudo:
         user_id = int(each_user)
         try:
@@ -512,7 +512,7 @@ def commandments(update: Update, context: CallbackContext):
 def paradise(update: Update, context: CallbackContext):
     bot = context.bot
     true_dev = list(set(DEV_USERS) - {OWNER_ID})
-    reply = "<b>🍁All Devs⚡️:</b>\n"
+    reply = "<b>hokage⚡️:</b>\n"
     for each_user in true_dev:
         user_id = int(each_user)
         try:
@@ -524,22 +524,22 @@ def paradise(update: Update, context: CallbackContext):
 
 
 
-SUDO_HANDLER = CommandHandler(("addsudo", "sudoadd"), addcommandment)
-ADDSUPREME_HANDLER = CommandHandler(("addsupport", "supportadd"), addsupreme)
-ADDWARLEVEL_HANDLER = CommandHandler(("addwhite"), addwarlevel)
-ADDRACE_HANDLER = CommandHandler(("addrank", "rankadd"), addrace)
-UNSUDO_HANDLER = CommandHandler(("delsudo", "rmsudo"), removecommandment)
-REMOVESUPREME_HANDLER = CommandHandler(("delsupport", "rmsupport"),
+SUDO_HANDLER = CommandHandler(("addsudo", "addanbu"), addcommandment)
+ADDSUPREME_HANDLER = CommandHandler(("addsupport", "addJounin"), addsupreme)
+ADDWARLEVEL_HANDLER = CommandHandler(("addChunin"), addwarlevel)
+ADDRACE_HANDLER = CommandHandler(("addgenin", "rankadd"), addrace)
+UNSUDO_HANDLER = CommandHandler(("delsudo", "removeanbu"), removecommandment)
+REMOVESUPREME_HANDLER = CommandHandler(("delsupport", "removeJounin"),
                                    removesupreme)
-REMOVEWARCOMMANDER_HANDLER = CommandHandler(("delwhite"), removewarcommander)
-REMOVERACE_HANDLER = CommandHandler(("delrank", "rmrank"),
+REMOVEWARCOMMANDER_HANDLER = CommandHandler(("removeChunin"), removewarcommander)
+REMOVERACE_HANDLER = CommandHandler(("delrank", "removegenin"),
                                      removerace)
 
-DEMONRACE_HANDLER = CommandHandler(["rankers", "rankers"],
+DEMONRACE_HANDLER = CommandHandler(["rankers", "genin"],
                                        demonrace)
-WARCOMMANDERS_HANDLER = CommandHandler(["whites"], warcommanders)
-SUPREMEDEMONS_HANDLER = CommandHandler(["supports", "gbanners"], supremedemons)
-COMMANDMENTS_HANDLER = CommandHandler(["sudos", "listsudo"], commandments)
+WARCOMMANDERS_HANDLER = CommandHandler(["chunin"], warcommanders)
+SUPREMEDEMONS_HANDLER = CommandHandler(["Jounin", "gbanners"], supremedemons)
+COMMANDMENTS_HANDLER = CommandHandler(["sudos", "anbu"], commandments)
 PARADISE_HANDLER = CommandHandler(["gods", "chinese"], paradise)
 
 dispatcher.add_handler(SUDO_HANDLER)
