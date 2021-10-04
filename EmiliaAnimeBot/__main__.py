@@ -78,15 +78,9 @@ buttons = [
           text="📮 Updates", url="https://t.me/updates_channel_minato"
         ),
     ],
-         
-    [
-       InlineKeyboardButton(
-           text="⚫usage", url="https://t.me/updates_channel_minato"
-         ),
-    ],
     [
         InlineKeyboardButton(
-          text="🈷️ support", url="https://t.me/minato_support" # If you have a bit of dignity left in you, Do NOT Remove this Button
+          text="🈷️ Support", url="https://t.me/minato_support" # If you have a bit of dignity left in you, Do NOT Remove this Button
         ),
      
     ],
