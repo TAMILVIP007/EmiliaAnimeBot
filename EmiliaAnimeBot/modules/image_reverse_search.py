@@ -1,4 +1,3 @@
-
 import os
 import re
 import requests
@@ -13,14 +12,16 @@ from telegram import Update
 from telegram.ext import CallbackContext, run_async
 
 from EmiliaAnimeBot import dispatcher
+
 from EmiliaAnimeBot.modules.disable import DisableAbleCommandHandler
+from EmiliaAnimeBot.modules.helper_funcs.alternate import typing_action
 
 opener = urllib.request.build_opener()
 useragent = 'Mozilla/5.0 (Linux; Android 6.0.1; SM-G920V Build/MMB29K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.98 Mobile Safari/537.36'
 opener.addheaders = [('User-agent', useragent)]
 
 @run_async
-def grs(update: Update, context:CallbackContext):
+def reverse(update: Update, context:CallbackContext):
     if os.path.isfile("okgoogle.png"):
         os.remove("okgoogle.png")
 
@@ -63,7 +64,7 @@ def grs(update: Update, context:CallbackContext):
             img_link = splatargs[1]
             lim = 2
         else:
-            msg.reply_text("/grs <link> <amount of images to return.>")
+            msg.reply_text("/reverse <link> <amount of images to return.>")
             return
         try:
             urllib.request.urlretrieve(img_link, imagename)
@@ -81,7 +82,7 @@ def grs(update: Update, context:CallbackContext):
             msg.reply_text(f"{VE}\nPlease try again using http or https protocol.")
             return
     else:
-        msg.reply_markdown("Please reply to a sticker, or an image to search it!\nDo you know that you can search an image with a link too? `/grs [picturelink] <amount>`.")
+        msg.reply_markdown("Please reply to a sticker, or an image to search it!\nDo you know that you can search an image with a link too? /reverse [picturelink] <amount>.")
         return
 
     try:
@@ -91,10 +92,10 @@ def grs(update: Update, context:CallbackContext):
         fetchUrl = response.headers['Location']
 
         if response != 400:
-            xx = bot.send_message(chat_id, "Image was successfully uploaded from Google."
-                                  "\nParsing Image, please wait.", reply_to_message_id=rtmid)
+            xx = bot.send_message(chat_id, "Image was successfully uploaded to Google."
+                                  "\nParsing it, please wait.", reply_to_message_id=rtmid)
         else:
-            xx = bot.send_message(chat_id, "An Unknown Error Occurred.", reply_to_message_id=rtmid)
+            xx = bot.send_message(chat_id, "Google told me to go away.", reply_to_message_id=rtmid)
             return
 
         os.remove(imagename)
@@ -106,7 +107,7 @@ def grs(update: Update, context:CallbackContext):
             imgspage = match['similar_images']
 
         if guess and imgspage:
-            xx.edit_text(f"[{guess}]({fetchUrl})\nRerversing On Google...", parse_mode='Markdown', disable_web_page_preview=True)
+            xx.edit_text(f"[{guess}]({fetchUrl})\nProcessing...", parse_mode='Markdown', disable_web_page_preview=True)
         else:
             xx.edit_text("Couldn't find anything.")
             return
@@ -159,7 +160,7 @@ def ParseSauce(googleurl):
 
 def scam(imgspage, lim):
     """Parse/Scrape the HTML code for the info we want."""
-grs
+
     single = opener.open(imgspage).read()
     decoded = single.decode('utf-8')
     if int(lim) > 10:
@@ -177,14 +178,16 @@ grs
         if counter >= int(lim):
             break
 
-    return imglinks grs
+    return imglinks
 
-__help__ = ""
+__help__ = """
+   /reverse :- reply to a sticker, or an image to search it!
+Do you know that you can search an image with a link too? /reverse picturelink <amount>.
+"""
+__mod_name__ = "Reverse"
 
-__mod_name__ = "Image Search"
-
-GRS_HANDLER = DisableAbleCommandHandler(
-    "grs", grs, pass_args=True, admin_ok=True
+REVERSE_HANDLER = DisableAbleCommandHandler(
+    ["reverse", "grs"], reverse, pass_args=True, admin_ok=True
 )
 
-dispatcher.add_handler(GRS_HANDLER)
+dispatcher.add_handler(REVERSE_HANDLER)
