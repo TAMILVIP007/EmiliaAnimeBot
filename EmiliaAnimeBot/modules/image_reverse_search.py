@@ -1,3 +1,4 @@
+
 import os
 import re
 import requests
@@ -19,7 +20,7 @@ useragent = 'Mozilla/5.0 (Linux; Android 6.0.1; SM-G920V Build/MMB29K) AppleWebK
 opener.addheaders = [('User-agent', useragent)]
 
 @run_async
-def reverse(update: Update, context:CallbackContext):
+def grs(update: Update, context:CallbackContext):
     if os.path.isfile("okgoogle.png"):
         os.remove("okgoogle.png")
 
@@ -62,7 +63,7 @@ def reverse(update: Update, context:CallbackContext):
             img_link = splatargs[1]
             lim = 2
         else:
-            msg.reply_text("/reverse <link> <amount of images to return.>")
+            msg.reply_text("/grs <link> <amount of images to return.>")
             return
         try:
             urllib.request.urlretrieve(img_link, imagename)
@@ -80,7 +81,7 @@ def reverse(update: Update, context:CallbackContext):
             msg.reply_text(f"{VE}\nPlease try again using http or https protocol.")
             return
     else:
-        msg.reply_markdown("Please reply to a sticker, or an image to search it!\nDo you know that you can search an image with a link too? `/reverse [picturelink] <amount>`.")
+        msg.reply_markdown("Please reply to a sticker, or an image to search it!\nDo you know that you can search an image with a link too? `/grs [picturelink] <amount>`.")
         return
 
     try:
@@ -158,7 +159,7 @@ def ParseSauce(googleurl):
 
 def scam(imgspage, lim):
     """Parse/Scrape the HTML code for the info we want."""
-
+grs
     single = opener.open(imgspage).read()
     decoded = single.decode('utf-8')
     if int(lim) > 10:
@@ -176,14 +177,14 @@ def scam(imgspage, lim):
         if counter >= int(lim):
             break
 
-    return imglinks
+    return imglinks grs
 
 __help__ = ""
 
 __mod_name__ = "Image Search"
 
-REVERSE_HANDLER = DisableAbleCommandHandler(
-    "reverse", reverse, pass_args=True, admin_ok=True
+GRS_HANDLER = DisableAbleCommandHandler(
+    "grs", grs, pass_args=True, admin_ok=True
 )
 
-dispatcher.add_handler(REVERSE_HANDLER)
+dispatcher.add_handler(GRS_HANDLER)
