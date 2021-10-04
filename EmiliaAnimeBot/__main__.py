@@ -82,8 +82,6 @@ buttons = [
     [
         InlineKeyboardButton(
           text="⛩️support⛩️", url="https://t.me/minato_support"), # If you have a bit of dignity left in you, Do NOT Remove this Button
-       ]]))
-     
     ],
 ]
 
