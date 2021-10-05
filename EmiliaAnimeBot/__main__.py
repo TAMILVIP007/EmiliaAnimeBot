@@ -4,6 +4,7 @@ import time
 import re
 from sys import argv
 from typing import Optional
+import EmiliaAnimeBot.modules.sql.users_sql as sql
 
 from EmiliaAnimeBot import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
                           OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK,
@@ -55,7 +56,8 @@ def get_readable_time(seconds: int) -> str:
 
 
 
-PM_START_TEXT =f"""𝘏𝘰𝘭𝘢 There {first_name}
+PM_START_TEXT ="""
+𝘏𝘰𝘭𝘢 There {}
 
 [∆𝕴 𝖆𝖒 𝕸𝖎𝖓𝖆𝖙𝖔 𝖆𝖐𝖆 𝖀𝖗 𝖄𝖊𝖑𝖑𝖔𝖜 𝖋𝖑𝖆𝖘𝖍 ∆](https://anilist.co/character/2535/Minato-Namikaze)
 ━━━━━━━━━━━━━━━━━━━━━━
@@ -64,7 +66,7 @@ This is a highly featured weebish style group management bot made by some weebs 
 Press /help to see what this pro bot can do
 ━━━━━━━━━━━━━━━━━━━━━━
 
-Since {} , I am protecting {} users
+Since `{}` , I am protecting `{}` users
 “𝑯𝒆𝒓𝒆 𝑰 𝒂𝒎 𝒓𝒆𝒂𝒅𝒚 𝒕𝒐 𝒉𝒆𝒍𝒑 𝒚𝒐𝒖 𝒎𝒂𝒏𝒂𝒈𝒆 𝒚𝒐𝒖𝒓 𝒈𝒓𝒑𝒔 𝒆𝒂𝒔𝒊𝒍𝒚...."
 """
 
@@ -188,10 +190,14 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name 
-            update.effective_message.reply_photo(EMILIA_IMG, 
-             caption=PM_START_TEXT,
-                disable_web_page_preview=false,
-                reply_markup=InlineKeyboardMarkup(buttons)
+            update.effective_message.reply_text(
+              PM_START_TEXT.format(
+                escape_markdown(first_name),
+                escape_markdown(uptime),
+                sql.num_users()),
+              reply_markup= InlineKeyboardMarkup(buttons),
+              parse_mode = ParseMode.MARKDOWN,
+              timeout = 60
             )
     else:
         update.effective_message.reply_photo(
