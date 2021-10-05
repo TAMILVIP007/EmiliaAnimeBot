@@ -181,7 +181,7 @@ def start(update: Update, context: CallbackContext):
             chamts = sql.get_all_chats() or []
             update.effective_message.reply_photo(EMILIA_IMG,
                 PM_START_TEXT.format(first_name , uptime ,umsers , chamts)
-                reply_markup=InlineKeyboardMarkup((
+                reply_markup=InlineKeyboardMarkup(
                   [
     [
         InlineKeyboardButton(
@@ -206,9 +206,7 @@ def start(update: Update, context: CallbackContext):
     ]
 ]
 ),
-                parse_mode=ParseMode.MARKDOWN,
-                timeout=60,
-            )
+                parse_mode=ParseMode.MARKDOWN
     else:
         update.effective_message.reply_photo(
             EMILIA_IMG, caption= "<code>{} is Here For You ㊙️\nI am Awake Since</code>: <code>{}</code>".format(
