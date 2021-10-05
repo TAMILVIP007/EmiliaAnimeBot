@@ -55,8 +55,8 @@ def get_readable_time(seconds: int) -> str:
 
 
 
-PM_START_TEXT ="""
-𝘏𝘰𝘭𝘢 There {}
+PM_START_TEXT =f"""
+𝘏𝘰𝘭𝘢 There {first_name}
 
 [∆𝕴 𝖆𝖒 𝕸𝖎𝖓𝖆𝖙𝖔 𝖆𝖐𝖆 𝖀𝖗 𝖄𝖊𝖑𝖑𝖔𝖜 𝖋𝖑𝖆𝖘𝖍 ∆](https://anilist.co/character/2535/Minato-Namikaze)
 ━━━━━━━━━━━━━━━━━━━━━━
@@ -65,11 +65,24 @@ This is a highly featured weebish style group management bot made by some weebs 
 Press /help to see what this pro bot can do
 ━━━━━━━━━━━━━━━━━━━━━━
 
-Since {} , I am protecting 
+Since {} , I am protecting {} users
 “𝑯𝒆𝒓𝒆 𝑰 𝒂𝒎 𝒓𝒆𝒂𝒅𝒚 𝒕𝒐 𝒉𝒆𝒍𝒑 𝒚𝒐𝒖 𝒎𝒂𝒏𝒂𝒈𝒆 𝒚𝒐𝒖𝒓 𝒈𝒓𝒑𝒔 𝒆𝒂𝒔𝒊𝒍𝒚...."
 """
 
-
+buttons = (
+  [
+      [
+        InlineKeyboardButton(text="➕ Add Minato To Your Group!",url=f"t.me/{BOT_USERNAME}?startgroup=true")
+      ],
+      [
+        InlineKeyboardButton(text="⚙️ Support Group", url= "t.me/minato_support"),
+        InlineKeyboardButton(text="🔔Updates Channel",url="https://t.me/MINATO_UPDATES")
+      ],
+      [
+        InlineKeyboardButton(text="📖 COMMANDS ",callback_data ="help_back")
+      ],
+   ],
+)
 
 HELP_STRINGS ="""
 `Hey there! My name is` [Minato namikaze]({https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg}) 
@@ -175,30 +188,12 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            first_name = update.effective_user.first_name #update is minato_upadtes #support is minato_support #command is help_back 
-            update.effective_message.reply_photo(EMILIA_IMG,
-                PM_START_TEXT.format((first_name )),
-                disable_web_page_preview=True,
-                reply_markup=InlineKeyboardMarkup(
-                    [[
-                        InlineKeyboardButton(
-                            text="➕ Add Minato To Your Group!",
-                            url="t.me/{}?startgroup=true".format(
-                                context.bot.username))
-                     ],
-                     [
-                         InlineKeyboardButton(
-                             text="⚙️ Support Group",
-                             url=f"https://t.me/MINATO_SUPPORT"),
-                         InlineKeyboardButton(
-                             text="🔔Updates Channel",
-                             url="https://t.me/MINATO_UPDATES")
-                     ],
-                     [
-                         InlineKeyboardButton(
-                             text="📖 COMMANDS ",
-                             callback_data ="help_back")
-                     ]]))
+            first_name = update.effective_user.first_name 
+            update.effective_message.reply_photo(EMILIA_IMG, 
+             caption=PM_START_TEXT,
+                disable_web_page_preview=false,
+                reply_markup=InlineKeyboardMarkup(buttons)
+            )
     else:
         update.effective_message.reply_photo(
             EMILIA_IMG, caption= "<code>{} is Here For You ㊙️\nI am Awake Since</code>: <code>{}</code>".format(
