@@ -176,17 +176,33 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            first_name = update.effective_user.first_name
+            first_name = update.effective_user.first_name #update is minato_upadtes #support is minato_support #command is help_back 
             umsers =  get_all_users()
             chamts = sql.get_all_chats() or []
             update.effective_message.reply_photo(EMILIA_IMG,
                 PM_START_TEXT.format(first_name , uptime ,umsers , chamts)
-                reply_markup = InlineKeyboardMarkup(
-                  [[InlineKeyboardButton(text="➕Add me➕",url=f"t.me/{BOT_USERNAME}?startgroup=true")],
-    [InlineKeyboardButton( text="🔰Commands🔰", callback_data="help_back")],
-    [InlineKeyboardButton(text="🚦Updates🚦", url="https://t.me/minato_updates"),
-        InlineKeyboardButton(text="⛩️Support⛩️", url="https://t.me/minato_support")]],
-                parse_mode=ParseMode.MARKDOWN )
+               parse_mode=ParseMode.MARKDOWN,
+                disable_web_page_preview=True,
+                reply_markup=InlineKeyboardMarkup(
+                    [[
+                        InlineKeyboardButton(
+                            text="➕ Add Minato To Your Group!",
+                            url="t.me/{}?startgroup=true".format(
+                                context.bot.username))
+                     ],
+                     [
+                         InlineKeyboardButton(
+                             text="⚙️ Support Group",
+                             url=f"https://t.me/MINATO_SUPPORT"),
+                         InlineKeyboardButton(
+                             text="🔔Updates Channel",
+                             url="https://t.me/MINATO_UPDATES")
+                     ],
+                     [
+                         InlineKeyboardButton(
+                             text="📖 COMMANDS ",
+                             callback_data ="help_back")
+                     ]]))
     else:
         update.effective_message.reply_photo(
             EMILIA_IMG, caption= "<code>{} is Here For You ㊙️\nI am Awake Since</code>: <code>{}</code>".format(
