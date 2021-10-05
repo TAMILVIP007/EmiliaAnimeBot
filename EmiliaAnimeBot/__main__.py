@@ -58,11 +58,11 @@ PM_START_TEXT = """
 𝘏𝘰𝘭𝘢 There {}
 [∆𝕴 𝖆𝖒 𝕸𝖎𝖓𝖆𝖙𝖔 𝖆𝖐𝖆 𝖀𝖗 𝖄𝖊𝖑𝖑𝖔𝖜 𝖋𝖑𝖆𝖘𝖍 ∆](https://anilist.co/character/2535/Minato-Namikaze)
 ━━━━━━━━━━━━━━━━━━━━━━
-
+START_MINATO_IMG = "https://telegra.ph/file/af3b555514ee92666e95d.jpg"
 This is a highly featured weebish style group management bot made by some weebs to help other weebs
 Press /help to see what this pro bot can do
 ━━━━━━━━━━━━━━━━━━━━━━
-
+(START_MINATO_IMG)
 Since {} , I am protecting {} users across {} chats
 “𝑯𝒆𝒓𝒆 𝑰 𝒂𝒎 𝒓𝒆𝒂𝒅𝒚 𝒕𝒐 𝒉𝒆𝒍𝒑 𝒚𝒐𝒖 𝒎𝒂𝒏𝒂𝒈𝒆 𝒚𝒐𝒖𝒓 𝒈𝒓𝒑𝒔 𝒆𝒂𝒔𝒊𝒍𝒚...."
 """
