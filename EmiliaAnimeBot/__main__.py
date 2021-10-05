@@ -176,10 +176,8 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name #update is minato_upadtes #support is minato_support #command is help_back 
-            umsers =  get_all_users()
-            chamts = sql.get_all_chats() or []
             update.effective_message.reply_photo(EMILIA_IMG,
-                PM_START_TEXT.format((first_name , uptime )),
+                PM_START_TEXT.format((first_name )),
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                     [[
