@@ -70,20 +70,18 @@ Since `{}` , I am protecting `{}` users
 “𝑯𝒆𝒓𝒆 𝑰 𝒂𝒎 𝒓𝒆𝒂𝒅𝒚 𝒕𝒐 𝒉𝒆𝒍𝒑 𝒚𝒐𝒖 𝒎𝒂𝒏𝒂𝒈𝒆 𝒚𝒐𝒖𝒓 𝒈𝒓𝒑𝒔 𝒆𝒂𝒔𝒊𝒍𝒚...."
 """
 
-buttons = (
-  [
-      [
-        InlineKeyboardButton(text="➕ Add Minato To Your Group!",url=f"t.me/{BOT_USERNAME}?startgroup=true")
-      ],
-      [
-        InlineKeyboardButton(text="⚙️ Support Group", url= "t.me/minato_support"),
-        InlineKeyboardButton(text="🔔Updates Channel",url="https://t.me/MINATO_UPDATES")
-      ],
-      [
-        InlineKeyboardButton(text="📖 COMMANDS ",callback_data ="help_back")
-      ],
-   ],
-)
+buttons = [
+    [
+      InlineKeyboardButton(text="➕ Add Minato To Your Group!",url=f"t.me/{BOT_USERNAME}?startgroup=true")
+    ],
+    [
+      InlineKeyboardButton(text="⚙️ Support Group", url= "t.me/minato_support"),
+      InlineKeyboardButton(text="🔔Updates Channel",url="https://t.me/MINATO_UPDATES")
+    ],
+    [
+      InlineKeyboardButton(text="📖 COMMANDS ",callback_data ="help_back")
+    ],
+]
 
 HELP_STRINGS ="""
 `Hey there! My name is` [Minato namikaze]({https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg}) 
