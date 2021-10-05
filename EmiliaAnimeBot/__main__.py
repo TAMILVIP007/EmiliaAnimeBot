@@ -55,41 +55,42 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT ="""
-Hey there{},Myself Minato namikaze!*
-≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
- An anime themed bot from* [naruto](https://anilist.co/anime/20)!!
-━━━━━━━━━━━━━━━━━━━━━━━━
-MINATOIMGSTART="https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg"
-• *Uptime:* `{}`
-• `{}` *users, across* `{}` *chats.*
-≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+𝘏𝘰𝘭𝘢 There {}
 
+[∆𝕴 𝖆𝖒 𝕸𝖎𝖓𝖆𝖙𝖔 𝖆𝖐𝖆 𝖀𝖗 𝖄𝖊𝖑𝖑𝖔𝖜 𝖋𝖑𝖆𝖘𝖍 ∆](https://anilist.co/character/2535/Minato-Namikaze)
+━━━━━━━━━━━━━━━━━━━━━━
 
-press /help to see all commands!
+This is a highly featured weebish style group management bot made by some weebs to help other weebs
+Press /help to see what this pro bot can do
+━━━━━━━━━━━━━━━━━━━━━━
+
+Since {} , I am protecting {} users across {} chats
+
+“𝑯𝒆𝒓𝒆 𝑰 𝒂𝒎 𝒓𝒆𝒂𝒅𝒚 𝒕𝒐 𝒉𝒆𝒍𝒑 𝒚𝒐𝒖 𝒎𝒂𝒏𝒂𝒈𝒆 𝒚𝒐𝒖𝒓 𝒈𝒓𝒑𝒔 𝒆𝒂𝒔𝒊𝒍𝒚...."
 """
 
 buttons = [
     [
         InlineKeyboardButton(
             text="➕Add me➕",url=f"t.me/{BOT_USERNAME}?startgroup=true"
-        ),
+        )
     ],
     [
         InlineKeyboardButton(
           text="🔰Commands🔰", callback_data="help_back"
-        ),
+        )
     ],
     [
         InlineKeyboardButton(
           text="🚦Updates🚦", url="https://t.me/minato_updates"
         ),
-    ],
-    [
+   
+  
         InlineKeyboardButton(
-          text="⛩️Support⛩️", url="https://t.me/minato_support" # If you have a bit of dignity left in you, Do NOT Remove this Button
-        ),
+          text="⛩️Support⛩️", url="https://t.me/minato_support" 
+        )
      
-    ],
+    ]
 ]
 
 
@@ -197,8 +198,9 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_text(
-                PM_START_TEXT,
+            first_name = update.effective_user.first_name
+            update.effective_message.reply_photo(EMILIA_IMG,
+                PM_START_TEXT.format(first_name , uptime , )
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
