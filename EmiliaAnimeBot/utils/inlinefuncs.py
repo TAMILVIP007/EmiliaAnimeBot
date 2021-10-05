@@ -90,7 +90,7 @@ async def inline_help_func(__help__):
             title="Github Repo",
             description="Get Github Respository Of Bot.",
             input_message_content=InputTextMessageContent(
-                "https://github.com/IzumiCypherX/EmiliaAnimeBot"
+                "https://github.com/Ninematsuno/EmiliaAnimeBot"
             ),
             thumb_url="https://hamker.me/gjc9fo3.png",
         ),
@@ -110,7 +110,7 @@ async def alive_function(answers):
     )
 
     msg = f"""
-**[Emilia✨](https://github.com/IzumiCypherX/EmiliaAnimeBot):**
+**[MINATO✨](https://github.com/Ninematsuno/EmiliaAnimeBot):**
 **RoBot:** `{bot_state}`
 **Python:** `{pyver.split()[0]}`
 **Pyrogram:** `{pyrover}`
