@@ -180,8 +180,7 @@ def start(update: Update, context: CallbackContext):
             umsers =  get_all_users()
             chamts = sql.get_all_chats() or []
             update.effective_message.reply_photo(EMILIA_IMG,
-                PM_START_TEXT.format(first_name , uptime ,umsers , chamts)
-                parse_mode=ParseMode.MARKDOWN,
+                PM_START_TEXT.format(escape_markdown(first_name , uptime ,umsers , chamts)),
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                     [[
