@@ -9,7 +9,7 @@ from EmiliaAnimeBot import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
                           OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK,
                           dispatcher, StartTime, telethn, updater, pgram, BOT_USERNAME, BOT_NAME)
 
-from EmiliaAnimeBot.modules.sql.users_sql import get_all_users
+from EmiliaAnimeBot.resources.imagefiles import EMILIA_START_IMG, EMILIA_HELP_IMG, EMILIA_IMG
 from EmiliaAnimeBot.modules import ALL_MODULES
 from EmiliaAnimeBot.modules.helper_funcs.chat_status import is_user_admin
 from EmiliaAnimeBot.modules.helper_funcs.misc import paginate_modules
@@ -23,6 +23,7 @@ from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
 from telegram.utils.helpers import escape_markdown
 
 EMILIA_IMG = "https://telegra.ph/file/75ee2cb13dc222c9ab224.jpg"
+
 
 def get_readable_time(seconds: int) -> str:
     count = 0
@@ -53,11 +54,8 @@ def get_readable_time(seconds: int) -> str:
 
 
 
-
-
-PM_START_TEXT ="""
+PM_START_TEXT = f"""
 𝘏𝘰𝘭𝘢 There {}
-
 [∆𝕴 𝖆𝖒 𝕸𝖎𝖓𝖆𝖙𝖔 𝖆𝖐𝖆 𝖀𝖗 𝖄𝖊𝖑𝖑𝖔𝖜 𝖋𝖑𝖆𝖘𝖍 ∆](https://anilist.co/character/2535/Minato-Namikaze)
 ━━━━━━━━━━━━━━━━━━━━━━
 
@@ -66,14 +64,43 @@ Press /help to see what this pro bot can do
 ━━━━━━━━━━━━━━━━━━━━━━
 
 Since {} , I am protecting {} users across {} chats
-
 “𝑯𝒆𝒓𝒆 𝑰 𝒂𝒎 𝒓𝒆𝒂𝒅𝒚 𝒕𝒐 𝒉𝒆𝒍𝒑 𝒚𝒐𝒖 𝒎𝒂𝒏𝒂𝒈𝒆 𝒚𝒐𝒖𝒓 𝒈𝒓𝒑𝒔 𝒆𝒂𝒔𝒊𝒍𝒚...."
 """
 
+buttons = [
+    [
+        InlineKeyboardButton(
+            text="🏹Summon ME🏹",url=f"t.me/{BOT_USERNAME}?startgroup=true"
+        ),
+    ],
+    [
+        InlineKeyboardButton(
+          text="Commands", callback_data="help_back"
+        ),
+    ],
+    [
+        InlineKeyboardButton(
+          text="📮 Updates", url="https://t.me/minato_updates"
+        ),
+    ],
+         
+    [
+       InlineKeyboardButton(
+           text="🐱 Support", url=f"https://t.me/{SUPPORT_CHAT}"
+         ),
+    ],
+    [
+        InlineKeyboardButton(
+          text="✒ Source", url="https://github.com/Ninematsuno/EmiliaAnimeBot" # If you have a bit of dignity left in you, Do NOT Remove this Button
+        ),
+     
+    ],
+]
 
+MINATO_HELP_IMG = "https://telegra.ph/file/dcbd910000e2a39d7ea93.jpg "
 
-HELP_STRINGS ="""
-`Hey there! My name is` [Minato namikaze]({https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg}) 
+HELP_STRINGS = f"""
+`Hey there! My name is` [Minato namikaze]({MINATO_HELP_IMG}) 
 I have Quite a Few Features, Go Ahead and Check out!"""
 
 IMPORTED = {}
@@ -176,35 +203,9 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            first_name = update.effective_user.first_name
-            umsers =  get_all_users()
-            chamts = sql.get_all_chats() or []
-            update.effective_message.reply_photo(EMILIA_IMG,
-                PM_START_TEXT.format(first_name , uptime ,umsers , chamts)
-                reply_markup=InlineKeyboardMarkup([
-    [
-        InlineKeyboardButton(
-            text="➕Add me➕",url=f"t.me/{BOT_USERNAME}?startgroup=true"
-        )
-    ],
-    [
-        InlineKeyboardButton(
-          text="🔰Commands🔰", callback_data="help_back"
-        )
-    ],
-    [
-        InlineKeyboardButton(
-          text="🚦Updates🚦", url="https://t.me/minato_updates"
-        ),
-   
-  
-        InlineKeyboardButton(
-          text="⛩️Support⛩️", url="https://t.me/minato_support" 
-        )
-     
-    ]
-]
-),
+            update.effective_message.reply_text(
+                PM_START_TEXT,
+                reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
@@ -217,11 +218,14 @@ def start(update: Update, context: CallbackContext):
             reply_markup=InlineKeyboardMarkup(
                 [
                   [
-                  InlineKeyboardButton(text="help", url=f"https://t.me/{BOT_USERNAME}?start=help")
+                  InlineKeyboardButton(text="Support", url=f"https://telegram.dog/{SUPPORT_CHAT}")
                   ],
                   [
-                  InlineKeyboardButton(text="support", url=f"https://t.me/minato_support")
+                  InlineKeyboardButton(text="Help", url=f"https://t.me/{BOT_USERNAME}?start=help")
                   ],
+                  [
+                  InlineKeyboardButton(text="Sᴏᴜʀᴄᴇ", url="https://github.com/Ninematsuno/EmiliaAnimeBot")
+                  ]
                 ]
             ),
         )
@@ -402,7 +406,7 @@ def get_help(update: Update, context: CallbackContext):
             InlineKeyboardMarkup(
                 [[InlineKeyboardButton(text="Back", callback_data="help_back"),
                                 InlineKeyboardButton(
-                                    text="Support", url="https://telegram.dog/Minato_support"
+                                    text="Support", url="https://telegram.dog/TangentChats"
                                 )]]
             ),
         )
@@ -593,8 +597,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage("@minato_support", "[MINATO IS BACK ONLINE⚡](https://telegra.ph/file/96c3d55c8eed84c3650de.mp4)",parse_mode = ParseMode.MARKDOWN ),
-
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", f"{BOT_NAME} is Back Online💼")
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to SUPPORT_CHAT, go and check!"
