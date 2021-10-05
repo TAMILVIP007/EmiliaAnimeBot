@@ -55,11 +55,11 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT ="""
-This is Minato[.](https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg)
-A Diverse Systematic Bot Written in Python.
-You can Add Me In Your Group for Knowing my True Power.
-
-You can either use /help or the Commands Button Given Below To get a list of my features!
+Hey there {},Myself Minato namikaze!*
+≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+ An anime themed bot from*[naruto](https://anilist.co/anime/20)!!
+━━━━━━━━━━━━━━━━━━━━━━━━
+press /help to see all commands!
 """
 
 buttons = [
