@@ -22,7 +22,7 @@ from telegram.ext import (CallbackContext, CallbackQueryHandler, CommandHandler,
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
 from telegram.utils.helpers import escape_markdown
 
-EMILIA_IMG = "https://telegra.ph/file/75ee2cb13dc222c9ab224.jpg"
+EMILIA_IMG = "https://telegra.ph/file/af3b555514ee92666e95d.jpg"
 
 def get_readable_time(seconds: int) -> str:
     count = 0
