@@ -9,6 +9,7 @@ from EmiliaAnimeBot import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
                           OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK,
                           dispatcher, StartTime, telethn, updater, pgram, BOT_USERNAME, BOT_NAME)
 
+from EmiliaAnimeBot.modules.sql.users_sql import get_all_users
 from EmiliaAnimeBot.modules import ALL_MODULES
 from EmiliaAnimeBot.modules.helper_funcs.chat_status import is_user_admin
 from EmiliaAnimeBot.modules.helper_funcs.misc import paginate_modules
@@ -199,8 +200,10 @@ def start(update: Update, context: CallbackContext):
 
         else:
             first_name = update.effective_user.first_name
+            umsers =  get_all_users()
+            chamts = sql.get_all_chats() or []
             update.effective_message.reply_photo(EMILIA_IMG,
-                PM_START_TEXT.format(first_name , uptime , )
+                PM_START_TEXT.format(first_name , uptime ,umsers , chamts)
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
