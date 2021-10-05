@@ -9,6 +9,7 @@ from EmiliaAnimeBot import (ALLOW_EXCL, CERT_PATH, DONATION_LINK, LOGGER,
                           OWNER_ID, PORT, SUPPORT_CHAT, TOKEN, URL, WEBHOOK,
                           dispatcher, StartTime, telethn, updater, pgram, BOT_USERNAME, BOT_NAME)
 
+from EmiliaAnimeBot.modules.sql.users_sql import get_all_users
 from EmiliaAnimeBot.modules import ALL_MODULES
 from EmiliaAnimeBot.modules.helper_funcs.chat_status import is_user_admin
 from EmiliaAnimeBot.modules.helper_funcs.misc import paginate_modules
@@ -21,7 +22,7 @@ from telegram.ext import (CallbackContext, CallbackQueryHandler, CommandHandler,
 from telegram.ext.dispatcher import DispatcherHandlerStop, run_async
 from telegram.utils.helpers import escape_markdown
 
-EMILIA_IMG = "https://telegra.ph/file/60c5d86c7764221328203.jpg"
+EMILIA_IMG = "https://telegra.ph/file/75ee2cb13dc222c9ab224.jpg"
 
 def get_readable_time(seconds: int) -> str:
     count = 0
@@ -55,35 +56,20 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT ="""
-This is Minato[.](https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg)
-A Diverse Systematic Bot Written in Python.
-You can Add Me In Your Group for Knowing my True Power.
+𝘏𝘰𝘭𝘢 There {}
 
-You can either use /help or the Commands Button Given Below To get a list of my features!
+[∆𝕴 𝖆𝖒 𝕸𝖎𝖓𝖆𝖙𝖔 𝖆𝖐𝖆 𝖀𝖗 𝖄𝖊𝖑𝖑𝖔𝖜 𝖋𝖑𝖆𝖘𝖍 ∆](https://anilist.co/character/2535/Minato-Namikaze)
+━━━━━━━━━━━━━━━━━━━━━━
+
+This is a highly featured weebish style group management bot made by some weebs to help other weebs
+Press /help to see what this pro bot can do
+━━━━━━━━━━━━━━━━━━━━━━
+
+Since {} , I am protecting {} users across {} chats
+
+“𝑯𝒆𝒓𝒆 𝑰 𝒂𝒎 𝒓𝒆𝒂𝒅𝒚 𝒕𝒐 𝒉𝒆𝒍𝒑 𝒚𝒐𝒖 𝒎𝒂𝒏𝒂𝒈𝒆 𝒚𝒐𝒖𝒓 𝒈𝒓𝒑𝒔 𝒆𝒂𝒔𝒊𝒍𝒚...."
 """
 
-buttons = [
-    [
-        InlineKeyboardButton(
-            text="➕Add me➕",url=f"t.me/{BOT_USERNAME}?startgroup=true"),
-    ],
-    [
-        InlineKeyboardButton(
-          text="🔰Commands🔰", callback_data="help_back"),
-    ],
-    [
-        InlineKeyboardButton(
-          text="🚦Updates🚦", url="https://t.me/updates_channel_minato"),
-    ],  
-    [
-       InlineKeyboardButton(
-           text="🉐usage🉐", url="https://t.me/updates_channel_minato"),
-    ],
-    [
-        InlineKeyboardButton(
-          text="⛩️support⛩️", url="https://t.me/minato_support"), # If you have a bit of dignity left in you, Do NOT Remove this Button
-    ],
-]
 
 
 HELP_STRINGS ="""
@@ -190,9 +176,35 @@ def start(update: Update, context: CallbackContext):
                 IMPORTED["rules"].send_rules(update, args[0], from_pm=True)
 
         else:
-            update.effective_message.reply_text(
-                PM_START_TEXT,
-                reply_markup=InlineKeyboardMarkup(buttons),
+            first_name = update.effective_user.first_name
+            umsers =  get_all_users()
+            chamts = sql.get_all_chats() or []
+            update.effective_message.reply_photo(EMILIA_IMG,
+                PM_START_TEXT.format(first_name , uptime ,umsers , chamts)
+                reply_markup=InlineKeyboardMarkup([
+    [
+        InlineKeyboardButton(
+            text="➕Add me➕",url=f"t.me/{BOT_USERNAME}?startgroup=true"
+        )
+    ],
+    [
+        InlineKeyboardButton(
+          text="🔰Commands🔰", callback_data="help_back"
+        )
+    ],
+    [
+        InlineKeyboardButton(
+          text="🚦Updates🚦", url="https://t.me/minato_updates"
+        ),
+   
+  
+        InlineKeyboardButton(
+          text="⛩️Support⛩️", url="https://t.me/minato_support" 
+        )
+     
+    ]
+]
+),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
