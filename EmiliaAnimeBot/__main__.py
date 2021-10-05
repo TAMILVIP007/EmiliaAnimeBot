@@ -55,10 +55,16 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT ="""
-Hey there {},Myself Minato namikaze!*
+Hey there{},Myself Minato namikaze!*
 ≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
- An anime themed bot from*[naruto](https://anilist.co/anime/20)!!
+ An anime themed bot from* [naruto](https://anilist.co/anime/20)!!
 ━━━━━━━━━━━━━━━━━━━━━━━━
+MINATOIMGSTART="https://telegra.ph/file/c64faeb5ca0f9885c8ab1.jpg"
+• *Uptime:* `{}`
+• `{}` *users, across* `{}` *chats.*
+≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡
+
+
 press /help to see all commands!
 """
 
