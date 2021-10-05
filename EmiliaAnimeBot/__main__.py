@@ -70,29 +70,6 @@ Since {} , I am protecting {} users across {} chats
 “𝑯𝒆𝒓𝒆 𝑰 𝒂𝒎 𝒓𝒆𝒂𝒅𝒚 𝒕𝒐 𝒉𝒆𝒍𝒑 𝒚𝒐𝒖 𝒎𝒂𝒏𝒂𝒈𝒆 𝒚𝒐𝒖𝒓 𝒈𝒓𝒑𝒔 𝒆𝒂𝒔𝒊𝒍𝒚...."
 """
 
-buttons = [
-    [
-        InlineKeyboardButton(
-            text="➕Add me➕",url=f"t.me/{BOT_USERNAME}?startgroup=true"
-        )
-    ],
-    [
-        InlineKeyboardButton(
-          text="🔰Commands🔰", callback_data="help_back"
-        )
-    ],
-    [
-        InlineKeyboardButton(
-          text="🚦Updates🚦", url="https://t.me/minato_updates"
-        ),
-   
-  
-        InlineKeyboardButton(
-          text="⛩️Support⛩️", url="https://t.me/minato_support" 
-        )
-     
-    ]
-]
 
 
 HELP_STRINGS ="""
@@ -204,7 +181,30 @@ def start(update: Update, context: CallbackContext):
             chamts = sql.get_all_chats() or []
             update.effective_message.reply_photo(EMILIA_IMG,
                 PM_START_TEXT.format(first_name , uptime ,umsers , chamts)
-                reply_markup=InlineKeyboardMarkup(buttons),
+                reply_markup=InlineKeyboardMarkup([
+    [
+        InlineKeyboardButton(
+            text="➕Add me➕",url=f"t.me/{BOT_USERNAME}?startgroup=true"
+        )
+    ],
+    [
+        InlineKeyboardButton(
+          text="🔰Commands🔰", callback_data="help_back"
+        )
+    ],
+    [
+        InlineKeyboardButton(
+          text="🚦Updates🚦", url="https://t.me/minato_updates"
+        ),
+   
+  
+        InlineKeyboardButton(
+          text="⛩️Support⛩️", url="https://t.me/minato_support" 
+        )
+     
+    ]
+]
+),
                 parse_mode=ParseMode.MARKDOWN,
                 timeout=60,
             )
