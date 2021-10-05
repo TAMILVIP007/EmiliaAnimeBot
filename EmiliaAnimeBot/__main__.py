@@ -65,8 +65,7 @@ This is a highly featured weebish style group management bot made by some weebs 
 Press /help to see what this pro bot can do
 ━━━━━━━━━━━━━━━━━━━━━━
 
-Since {} , I am protecting {} users across {} chats
-
+Since {} , I am protecting 
 “𝑯𝒆𝒓𝒆 𝑰 𝒂𝒎 𝒓𝒆𝒂𝒅𝒚 𝒕𝒐 𝒉𝒆𝒍𝒑 𝒚𝒐𝒖 𝒎𝒂𝒏𝒂𝒈𝒆 𝒚𝒐𝒖𝒓 𝒈𝒓𝒑𝒔 𝒆𝒂𝒔𝒊𝒍𝒚...."
 """
 
@@ -180,7 +179,7 @@ def start(update: Update, context: CallbackContext):
             umsers =  get_all_users()
             chamts = sql.get_all_chats() or []
             update.effective_message.reply_photo(EMILIA_IMG,
-                PM_START_TEXT.format((first_name , uptime ,umsers , chamts)),
+                PM_START_TEXT.format((first_name , uptime )),
                 disable_web_page_preview=True,
                 reply_markup=InlineKeyboardMarkup(
                     [[
