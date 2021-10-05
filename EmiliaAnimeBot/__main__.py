@@ -59,7 +59,7 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT ="""
 𝘏𝘰𝘭𝘢 There {}
 
-[∆𝕴 𝖆𝖒 𝕸𝖎𝖓𝖆𝖙𝖔 𝖆𝖐𝖆 𝖀𝖗 𝖄𝖊𝖑𝖑𝖔𝖜 𝖋𝖑𝖆𝖘𝖍 ∆](https://anilist.co/character/2535/Minato-Namikaze)
+[∆𝕴 𝖆𝖒 𝕸𝖎𝖓𝖆𝖙𝖔 𝖆𝖐𝖆 𝖀𝖗 𝖄𝖊𝖑𝖑𝖔𝖜 𝖋𝖑𝖆𝖘𝖍 ∆](https://telegra.ph/file/af3b555514ee92666e95d.jpg)
 ━━━━━━━━━━━━━━━━━━━━━━
 
 This is a highly featured weebish style group management bot made by some weebs to help other weebs
