@@ -96,12 +96,10 @@ def pat(update: Update, context: CallbackContext):
     args = context.args
     message = update.effective_message
 
-    reply_to = message.reply_to_message if message.reply_to_message else message
+    reply_to = message.reply_to_message or message
 
     curr_user = html.escape(message.from_user.first_name)
-    user_id = extract_user(message, args)
-
-    if user_id:
+    if user_id := extract_user(message, args):
         patted_user = bot.get_chat(user_id)
         user1 = curr_user
         user2 = html.escape(patted_user.first_name)
